@@ -1,0 +1,45 @@
+server:
+  port: 12345
+
+spring:
+  application:
+    name: clean-arch-walkthrough-app
+
+  profiles:
+    active: local
+
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+logging:
+  level:
+    root: info
+  file: logs/clean-arch-walkthrough-app.log
+  pattern:
+    console: "%d %-5level [%thread] %logger : %msg%n"
+    file:    "%d %-5level [%thread] %logger : %msg%n"
+
+---
+# local profile
+spring:
+  profiles: local
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+    url: jdbc:h2:tcp://localhost:1521/test
+    driver-class-name: org.h2.Driver
+    username: sa
+
+logging:
+  level:
+    wiki.neoul.api: debug

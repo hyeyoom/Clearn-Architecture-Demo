@@ -1,0 +1,21 @@
+rootProject.name = 'clean-arch-tutorial'
+
+/**
+ * 순수 코어 엔티티
+ */
+include 'module-core'
+
+/**
+ * 유스 케이스
+ */
+include 'module-usecase'
+
+/**
+ * 데이터 관리
+ */
+include 'module-dataprovider'
+
+/**
+ *
+ */
+include 'module-app:front'
